@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar {
+            display: flex;
+            background-color: rgb(187, 228, 186);
+            justify-content: space-around;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+    <div><a href="backend.html"><h1>Backend</h1></a></div>
+    <div><a href="front.html"><h1>Frontend</h1></a></div></div>
+    <form id="inputout">
+        <input id="img" type="text" placeholder="Enter the imgURL"/>
+        <input id="Name" type="text" placeholder="Enter the Name"/>
+        <input id="Role" type="text" placeholder="Enter the Role"/>
+        <input id="Logo" type="text" placeholder="Enter the logoURL">
+        <input type="submit"/>
+    </form>
+    
+</body>
+</html>
+
+<script>
+    document.querySelector("#inputout").addEventListener("submit", InvesterFunc);
+    
+
+   function InvesterFunc (){
+        event.preventDefault();
+
+       
+
+        var InvesterObj = {
+            Img:inputout.img.value,
+            Name:inputout.Name.value,
+            Role:inputout.Role.value,
+            Logo:inputout.Logo.value,
+        }
+
+        
+        console.log(InvesterObj)
+        localStorage.setItem("investorsData",JSON.stringify(InvesterObj))
+    }
+
+
+        
+
+
+</script>
