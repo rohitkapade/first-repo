@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display:grid;
+            flex-direction:row;
+            justify-content:center;
+            align-items: center;
+            padding-top: 130px;
+        }
+
+        div{
+            /* border: 1px solid red; */
+            height: 240px;
+            width: 195px;
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #login {
+            display: grid;
+            justify-content: space-between 50px;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>E-commerse Login page</h3>
+    <form id="login">
+        
+        <input id="userEmailli" type="text" placeholder="Enter Email Id"/><br>
+        
+        <input id="userPassli" type="text" placeholder="Enter Password"/><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<script>
+
+    var addofform = document.getElementById("login")
+   
+   addofform.addEventListener("submit",loginfunc)
+
+    var userdata = JSON.parse(localStorage.getItem("signupdata"));
+   
+
+
+function loginfunc (){
+    event.preventDefault();
+for (var i=0; i<userdata.length; i++){
+
+    var loginobj = {
+            email:login.userEmailli.value,
+            password:login.userPassli.value
+        }
+        console.log("userdata")
+        if(userdata[i]===null){
+            alert("Please creat an account !");
+            console.log("ggg")
+           
+        }
+        else if(loginobj.email===userdata[i].mail && loginobj.password===userdata[i].password){
+            alert("Login successfull !");
+            localStorage.setItem("logindata",JSON.stringify(userdata))
+        }
+        else{
+            alert("User does not exist")
+        }
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // addofform.addEventListener("submit",function(event){
+    //     event.preventDefault();
+
+    //     var loginobj = {
+    //         email:login.userEmailli.value,
+    //         password:login.userPassli.value
+    //     }
+    //     console.log("userdata")
+    //     if(userdata===null){
+    //         alert("Please creat an account !");
+    //         console.log("ggg")
+           
+    //     }
+    //     else if(loginobj.email===userdata.userEmail && loginobj.password===userdata.userPass){
+    //         alert("Login successfull !");
+    //         localStorage.setItem("logindata",JSON.stringify(userdata))
+    //     }
+    //     else{
+    //         alert("User does not exist")
+    //     }
+        
+    // })
+</script>

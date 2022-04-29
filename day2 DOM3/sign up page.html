@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-tosp: 130px;
+        }
+
+        div {
+            /* border: 1px solid red; */
+            height: 340px;
+            width: 240px;
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #signup {
+            display: grid;
+            justify-content: space-between 50px;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>E-commerse Signup page</h3>
+        <form id="signup">
+            <input id="userName" type="text" placeholder="Enter the Name" /><br>
+            <input id="userEmail" type="text" placeholder="Enter Email Id" /><br>
+            <input id="userNum" type="number" placeholder="Enter Phone number" /><br>
+            <input id="userPass" type="text" placeholder="Enter Password" /><br>
+            <input type="submit">
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    var submission = document.querySelector("#signup").addEventListener("submit", signfunc)
+
+    var signuparr = JSON.parse(localStorage.getItem("signupdata")) || [];
+
+    function signfunc() {
+        event.preventDefault();
+
+        var signupobj = {
+
+            name: document.querySelector("#userName").value,
+            mail: signup.userEmail.value,
+            mobno: document.querySelector("#userNum").value,
+            password: document.querySelector("#userPass").value,
+
+        }
+        signuparr.push(signupobj)
+        console.log(signuparr)
+        localStorage.setItem("signupdata", JSON.stringify(signuparr))
+        window.location.href = "login page.html"
+    }
+</script>
